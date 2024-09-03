@@ -1,0 +1,55 @@
+services:
+  php:
+    env_file:
+      - ".env"
+    build:
+      context: .
+      args:
+        - SERVER_USER=${SERVER_USER}
+        - SERVER_USER_UID=${SERVER_USER_UID}
+        - SERVER_GROUP=${SERVER_GROUP}
+        - SERVER_GROUP_GID=${SERVER_GROUP_GID}
+      dockerfile: src/${SERVER_VERSION}/PHP/Dockerfile
+    image: php_bdw_${SERVER_VERSION}
+
+#  db:
+#    env_file:
+#      - ".env"
+#    build:
+#      context: ../../
+#      dockerfile: ./src/classic/MariaDB/Dockerfile
+#    image: mariadb_bdw_${SERVER_VERSION}
+#
+#  phpmyadmin:
+#    env_file:
+#      - "../../.env"
+#    build:
+#      context: ../../
+#      args:
+#        - SERVER_USER=${SERVER_USER}
+#        - SERVER_USER_UID=${SERVER_USER_UID}
+#        - SERVER_GROUP=${SERVER_GROUP}
+#        - SERVER_GROUP_GID=${SERVER_GROUP_GID}
+#      dockerfile: ./src/classic/PMA/Dockerfile
+#    image: pma_bdw_${SERVER_VERSION}
+#
+#  nginx:
+#    env_file:
+#      - "../../.env"
+#    build:
+#      context: ../../
+#      args:
+#        - SERVER_USER=${SERVER_USER}
+#        - SERVER_USER_UID=${SERVER_USER_UID}
+#        - SERVER_GROUP=${SERVER_GROUP}
+#        - SERVER_GROUP_GID=${SERVER_GROUP_GID}
+#      dockerfile: ./src/classic/Nginx/Dockerfile
+#    image: nginx_bdw_${SERVER_VERSION}
+#
+#  redis:
+#    env_file:
+#      - "../../.env"
+#    build:
+#      context: ../../
+#      dockerfile: ./src/classic/Redis/Dockerfile
+#    image: redis_bdw_${SERVER_VERSION}

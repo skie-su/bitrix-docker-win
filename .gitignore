@@ -1,10 +1,7 @@
 ## Исключение директорий
 /.idea
 /.docker
-/docker
-/src/.docker
-/src/fastcgi
-/app/web
+/app/web/*
 
 ## Исключаем файлы
 .env.*
